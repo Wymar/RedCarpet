@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.wymar.redcarpet", appContext.getPackageName());
+        assertEquals("com.example.wymar.redcarpet2", appContext.getPackageName());
     }
 }
