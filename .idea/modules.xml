@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RedCarpet.iml" filepath="$PROJECT_DIR$/RedCarpet.iml" />
+      <module fileurl="file://C:\Users\Bilal\Downloads\favorite-master\RedCarpet\RedCarpet.iml" filepath="C:\Users\Bilal\Downloads\favorite-master\RedCarpet\RedCarpet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Bilal\Downloads\favorite-master\RedCarpet\app\app.iml" filepath="C:\Users\Bilal\Downloads\favorite-master\RedCarpet\app\app.iml" />
     </modules>
   </component>
 </project>
