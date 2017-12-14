@@ -1,89 +1,27 @@
 {
   "project_info": {
-    "project_number": "684225901463",
-    "firebase_url": "https://redcarpet-198d9.firebaseio.com",
-    "project_id": "redcarpet-198d9",
-    "storage_bucket": "redcarpet-198d9.appspot.com"
+    "project_number": "396461111784",
+    "firebase_url": "https://redcarpet-db210.firebaseio.com",
+    "project_id": "redcarpet-db210",
+    "storage_bucket": "redcarpet-db210.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:684225901463:android:90e5088fff923640",
-        "android_client_info": {
-          "package_name": "app.real_time_chat"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "684225901463-043k2m9rtj857rvc6eu1pgc8kmsv6um5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAYJzXpAOfQJJvhz3DlCL77ACpGI6q1CFw"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:684225901463:android:d9e46cebedbe7567",
-        "android_client_info": {
-          "package_name": "com.example.bilal.red"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "684225901463-043k2m9rtj857rvc6eu1pgc8kmsv6um5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAYJzXpAOfQJJvhz3DlCL77ACpGI6q1CFw"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:684225901463:android:84c6bd67d86c7bb3",
+        "mobilesdk_app_id": "1:396461111784:android:84c6bd67d86c7bb3",
         "android_client_info": {
           "package_name": "com.example.wymar.redcarpet"
         }
       },
       "oauth_client": [
         {
-          "client_id": "684225901463-043k2m9rtj857rvc6eu1pgc8kmsv6um5.apps.googleusercontent.com",
+          "client_id": "396461111784-oumvmbjf0ku6f71stj0lq9s1g0cdesvg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAYJzXpAOfQJJvhz3DlCL77ACpGI6q1CFw"
+          "current_key": "AIzaSyBtjzMmNzzsD3QJy1pnWhlEslKS2R8m2oI"
         }
       ],
       "services": {
