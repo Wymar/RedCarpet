@@ -1,120 +1,64 @@
 package com.example.wymar.redcarpet;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.*;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.support.v4.app.FragmentTransaction;
 
-import com.google.firebase.database.*;
+public class MainActivity extends AppCompatActivity implements ActionBar.TabListener{
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+    private ViewPager viewPager;
+    private TabAdapter mAdapter;
+    private ActionBar actionBar;
 
-
-public class MainActivity extends AppCompatActivity {
-
-    private Button  add_room;
-    private EditText room_name;
-
-    private ListView listView;
-    private ArrayAdapter<String> arrayAdapter;
-    private ArrayList<String> list_of_rooms = new ArrayList<>();
-    private String name;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
+    private String[] tabs = {"Dashboard","Parties","Chat","Settings"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        add_room = (Button) findViewById(R.id.btn_add_room);
-        room_name = (EditText) findViewById(R.id.room_name_edittext);
-        listView = (ListView) findViewById(R.id.listView);
+        viewPager = findViewById(R.id.pager);
+        actionBar = getSupportActionBar();
+        mAdapter = new TabAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(mAdapter);
+        actionBar.setHomeButtonEnabled(false);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_of_rooms);
+        for(String tab:tabs){
+            actionBar.addTab(actionBar.newTab().setText(tab).setTabListener(this));
+        }
 
-        listView.setAdapter(arrayAdapter);
-
-        request_user_name();
-
-        add_room.setOnClickListener(new View.OnClickListener() {
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
             @Override
-            public void onClick(View view) {
+            public void onPageSelected(int pos){
+                actionBar.setSelectedNavigationItem(pos);
+            }
 
-                Map<String,Object> map = new HashMap<String, Object>();
-                map.put(room_name.getText().toString(),"");
-                root.updateChildren(map);
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            }
 
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
             }
         });
+    }
 
-        root.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+        viewPager.setCurrentItem(tab.getPosition());
+    }
 
-                Set<String> set = new HashSet<String>();
-                Iterator i = dataSnapshot.getChildren().iterator();
-
-                while (i.hasNext()){
-                    set.add(((DataSnapshot)i.next()).getKey());
-                }
-
-                list_of_rooms.clear();
-                list_of_rooms.addAll(set);
-
-                arrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Intent intent = new Intent(getApplicationContext(),Chat_Room.class);
-                intent.putExtra("room_name",((TextView)view).getText().toString() );
-                intent.putExtra("user_name",name);
-                startActivity(intent);
-            }
-        });
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
 
-    private void request_user_name() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter name:");
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
-        final EditText input_field = new EditText(this);
-
-        builder.setView(input_field);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                name = input_field.getText().toString();
-            }
-        });
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-                request_user_name();
-            }
-        });
-
-        builder.show();
     }
-
-
 }

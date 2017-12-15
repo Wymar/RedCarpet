@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RedCarpet.iml" filepath="$PROJECT_DIR$/RedCarpet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RedCarpet.iml" filepath="$PROJECT_DIR$/.idea/RedCarpet.iml" />
+      <module fileurl="file://D:\Users\Wymar\GitHub\RedCarpet\RedCarpet.iml" filepath="D:\Users\Wymar\GitHub\RedCarpet\RedCarpet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Users\Wymar\GitHub\RedCarpet\app\app.iml" filepath="D:\Users\Wymar\GitHub\RedCarpet\app\app.iml" />
     </modules>
   </component>
 </project>

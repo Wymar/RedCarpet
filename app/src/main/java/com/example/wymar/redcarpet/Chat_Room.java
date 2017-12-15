@@ -1,14 +1,13 @@
 package com.example.wymar.redcarpet;
 
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.wymar.redcarpet.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,7 +18,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Chat_Room  extends AppCompatActivity{
+public class Chat_Room  extends FragmentActivity {
 
     private Button btn_send_msg;
     private EditText input_msg;
@@ -29,14 +28,13 @@ public class Chat_Room  extends AppCompatActivity{
     private DatabaseReference root ;
     private String temp_key;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat__room);
 
-        btn_send_msg = (Button) findViewById(R.id.btn_send);
-        input_msg = (EditText) findViewById(R.id.msg_input);
-        chat_conversation = (TextView) findViewById(R.id.textView);
+        btn_send_msg = this.findViewById(R.id.btn_send);
+        input_msg = this.findViewById(R.id.msg_input);
+        chat_conversation = this.findViewById(R.id.textView);
 
         user_name = getIntent().getExtras().get("user_name").toString();
         room_name = getIntent().getExtras().get("room_name").toString();

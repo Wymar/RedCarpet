@@ -3,6 +3,7 @@
     package="com.example.wymar.redcarpet">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-sdk android:minSdkVersion="11" />
 
     <application
         android:allowBackup="true"

@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Red</string>
+    <string name="app_name">RedCarpet</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="parties">Parties</string>
+    <string name="chat">Chat</string>
+    <string name="settings">Settings</string>
 </resources>
