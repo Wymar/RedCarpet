@@ -6,8 +6,19 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class TabAdapter extends FragmentPagerAdapter {
 
+    private String[] tabs = {"Dashboard","Parties","Chat","Settings"};
+
     public TabAdapter(FragmentManager fm) {
         super(fm);
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabs[position];
+    }
+
+    public String[] getTabs(){
+        return tabs;
     }
 
     @Override

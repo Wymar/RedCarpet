@@ -1,19 +1,17 @@
 package com.example.wymar.redcarpet;
 
-import android.support.v7.app.ActionBar;
+import android.support.design.widget.TabLayout;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.support.v4.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity implements ActionBar.TabListener{
+public class MainActivity extends AppCompatActivity{
 
     private ViewPager viewPager;
     private TabAdapter mAdapter;
-    private ActionBar actionBar;
-
-    private String[] tabs = {"Dashboard","Parties","Chat","Settings"};
+    private TabLayout   tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,20 +20,36 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         setContentView(R.layout.activity_main);
 
         viewPager = findViewById(R.id.pager);
-        actionBar = getSupportActionBar();
+        tabLayout = findViewById(R.id.tabs);
         mAdapter = new TabAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mAdapter);
-        actionBar.setHomeButtonEnabled(false);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        for(String tab:tabs){
-            actionBar.addTab(actionBar.newTab().setText(tab).setTabListener(this));
+        for(String tab:mAdapter.getTabs()) {
+            tabLayout.addTab(tabLayout.newTab().setText(tab));
         }
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
             @Override
             public void onPageSelected(int pos){
-                actionBar.setSelectedNavigationItem(pos);
+
             }
 
             @Override
@@ -48,17 +62,15 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         });
     }
 
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+    public void onTabSelected(TabLayout.Tab tab, FragmentTransaction ft) {
         viewPager.setCurrentItem(tab.getPosition());
     }
 
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+    public void onTabUnselected(TabLayout.Tab tab, FragmentTransaction ft) {
 
     }
 
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+    public void onTabReselected(TabLayout.Tab tab, FragmentTransaction ft) {
 
     }
 }
