@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
-import android.support.v4.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -60,17 +59,5 @@ public class MainActivity extends AppCompatActivity{
             public void onPageScrollStateChanged(int arg0) {
             }
         });
-    }
-
-    public void onTabSelected(TabLayout.Tab tab, FragmentTransaction ft) {
-        viewPager.setCurrentItem(tab.getPosition());
-    }
-
-    public void onTabUnselected(TabLayout.Tab tab, FragmentTransaction ft) {
-
-    }
-
-    public void onTabReselected(TabLayout.Tab tab, FragmentTransaction ft) {
-
     }
 }

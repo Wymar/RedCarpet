@@ -17,7 +17,7 @@ public class TabAdapter extends FragmentPagerAdapter {
         return tabs[position];
     }
 
-    public String[] getTabs(){
+    public String[] getTabs() {
         return tabs;
     }
 
@@ -40,6 +40,6 @@ public class TabAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount(){
-        return 4;
+        return tabs.length;
     }
 }
